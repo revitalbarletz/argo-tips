@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argo-tips
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: argo-tips
+  template:
+    metadata:
+      labels:
+        app: argo-tips
+    spec:
+      containers:
+      - name: web
+        image: yourdockerhubusername/argo-tips:latest
+        ports:
+        - containerPort: 80
