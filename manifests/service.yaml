@@ -2,10 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: argo-tips
+  namespace: default
 spec:
+  type: NodePort   # 👈 change from LoadBalancer to NodePort
   selector:
     app: argo-tips
   ports:
-    - port: 80
+    - protocol: TCP
+      port: 80
       targetPort: 80
-  type: NodePort
+      nodePort: 30080   # 👈 You can specify or leave it to auto-assign (30000–32767)
