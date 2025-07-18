@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: web
-        image: revitalbar/argo-tips:v3
+        image: revitalbar/argo-tips:v1.1
         ports:
         - containerPort: 80
