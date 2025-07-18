@@ -1,24 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Argo Tips</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; }
-    h1 { color: #007acc; }
-    ul { list-style-type: none; padding: 0; }
-    li { margin: 10px 0; }
-    a { text-decoration: none; color: #0366d6; }
-    a:hover { text-decoration: underline; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background-color: #0f172a;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .tip-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 1.2rem;
+      transition: transform 0.2s ease;
+    }
+
+    .tip-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .tip-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .tip-content {
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: #666;
+    }
   </style>
 </head>
 <body>
-  <h1>Argo Tips</h1>
-  <p>A community-driven collection of practical tips for Argo CD.</p>
-  <ul>
-    <li><a href="tips/tip-sync-waves.html">Use Sync Waves to Control Resource Order</a></li>
-    <li><a href="tips/tip-ignore-changes-flag.html">Ignore Changes Flag</a></li>
-    <li><a href="tips/tip-app-of-apps.md">Use the App of Apps Pattern</a></li>
-  </ul>
-  <p>Want to contribute? <a href="CONTRIBUTING.md">Learn how</a>.</p>
+  <header>
+    <h1>🚀 Argo Tips</h1>
+    <p>Helpful tips for using Argo CD</p>
+  </header>
+
+  <main class="container">
+    <!-- Tip cards -->
+    <div class="tip-card">
+      <div class="tip-title">🔒 Ignore Changes</div>
+      <div class="tip-content">
+        Use `spec.ignoreDifferences` in your Application manifest to ignore specific fields or paths during diff/sync operations.
+      </div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-title">📁 Use Kustomize for Customization</div>
+      <div class="tip-content">
+        Kustomize lets you maintain environment-specific overrides without duplicating manifests. Argo CD has native support for it.
+      </div>
+    </div>
+
+    <!-- Add more tip cards here -->
+  </main>
+
+  <footer>
+    © 2025 Argo Tips Project
+  </footer>
 </body>
 </html>
