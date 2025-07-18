@@ -1,11 +1,59 @@
-# Using the `ignoreDifferences` Flag in Argo CD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ignore Differences</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 1rem;
+    }
 
-When managing applications, some Kubernetes resources or fields might change outside of Git (e.g., auto-generated fields or secrets). To prevent Argo CD from constantly trying to revert these changes, you can use the `ignoreDifferences` flag in your Application manifest.
+    .tip-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+    }
 
-Example snippet:
+    .tip-card h1 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+    }
 
-```yaml
-apiVersion: argoproj.io/v1alpha1
+    .tip-card p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    pre {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: monospace;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <div class="tip-card">
+    <h1>Using the <code>ignoreDifferences</code> Flag in Argo CD</h1>
+    <p>
+      When managing applications, some Kubernetes resources or fields might change outside of Git
+      (e.g., auto-generated fields or secrets). To prevent Argo CD from constantly trying to revert
+      these changes, you can use the <code>ignoreDifferences</code> flag in your Application manifest.
+    </p>
+
+    <p>Example snippet:</p>
+    <pre><code>apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: my-app
@@ -24,4 +72,7 @@ spec:
   - group: ""
     kind: ConfigMap
     jsonPointers:
-    - /data/password
+    - /data/password</code></pre>
+  </div>
+</body>
+</html>
