@@ -1,9 +1,72 @@
----
-title: "Use Sync Waves to Control Resource Order"
-tags: [sync, rollout, ordering]
-submitted_by: "Revital Barletz"
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Use Sync Waves</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 1rem;
+    }
 
-💡 Argo CD lets you control the order in which resources are applied using `argocd.argoproj.io/sync-wave` annotations.
+    .tip-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+    }
 
-Use lower wave numbers for things like Secrets or CRDs, and higher numbers for Deployments that depend on them.
+    .tip-card h1 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-bottom: 0.2rem;
+    }
+
+    .tip-card .meta {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 1rem;
+    }
+
+    .tip-card p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .tip-card code {
+      background-color: #f0f0f0;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.95rem;
+      color: #2c3e50;
+    }
+
+    .tip-card .emoji {
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="tip-card">
+    <h1>Use Sync Waves to Control Resource Order</h1>
+    <div class="meta">
+      🏷️ Tags: sync, rollout, ordering <br />
+      ✍️ Submitted by: Revital Barletz
+    </div>
+    <p class="emoji">💡</p>
+    <p>
+      Argo CD lets you control the order in which resources are applied using
+      the <code>argocd.argoproj.io/sync-wave</code> annotation.
+    </p>
+    <p>
+      Use lower wave numbers for things like <strong>Secrets</strong> or <strong>CRDs</strong>, and higher numbers for
+      <strong>Deployments</strong> that depend on them.
+    </p>
+  </div>
+</body>
+</html>
