@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-tips
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/revitalbarletz/argo-tips.git
+    targetRevision: main
+    path: manifests
+    manifestGeneratePaths:                     # 👈 new field
+      - manifests/deployment.yaml
+      - manifests/service.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
