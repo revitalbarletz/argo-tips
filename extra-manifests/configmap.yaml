@@ -1,21 +1,6 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
+apiVersion: v1
+kind: ConfigMap
 metadata:
-  name: argo-tips
-  namespace: argocd
-spec:
-  destination:
-    namespace: default
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    repoURL: https://github.com/revitalbarletz/argo-tips.git
-    targetRevision: main
-    path: manifests
-    manifestGeneratePaths:                     # 👈 new field
-      - manifests/deployment.yaml
-      - manifests/service.yaml
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  name: argo-tips-config
+data:
+  welcome: "This is a demo configmap for testing manifestGeneratePaths"
