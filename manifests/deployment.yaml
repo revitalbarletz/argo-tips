@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: argo-tips
+  namespace: argo-tips 
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"  # optional: set a sync wave
 spec:
   replicas: 1
   selector:
@@ -17,3 +20,9 @@ spec:
         image: revitalbar/argo-tips:v1.5
         ports:
         - containerPort: 80
+        env:
+        - name: APP_MESSAGE
+          valueFrom:
+            configMapKeyRef:
+              name: argo-tips-config
+              key: APP_MESSAGE
