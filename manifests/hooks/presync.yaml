@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: argo-tips-presync
+  namespace: argo-tips
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: check
+        image: bitnami/kubectl:latest
+        command: ["sh","-c"]
+        args:
+          - |
+            echo "PreSync: verifying namespace and cluster reachability..."
+            kubectl get ns argo-tips && echo "OK"
