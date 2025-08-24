@@ -17,6 +17,9 @@ spec:
         command: ["sh","-c"]
         args:
           - |
-            echo "PostSync: curling service..."
-            # If you have a ClusterIP service named argo-tips on port 80:
-            curl -sS http://argo-tips/ || true
+            echo "Running smoke test against argo-tips service..."
+            curl -sSf http://argo-tips.argo-tips.svc.cluster.local:80/ \
+              && echo "✅ Smoke test passed!" \
+              || (echo "❌ Smoke test failed!" && exit 1)
+
+
