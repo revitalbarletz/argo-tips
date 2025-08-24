@@ -17,8 +17,8 @@ spec:
       - manifests/configmap
       - manifests/deployment
       - manifests/service
-      - manifests/pre-sync-waves
-      - manifests/argo-post-waves
+      - manifests/hooks/pre-sync-waves
+      - manifests/hooks/post-sync-waves
   syncPolicy:
     automated:
       prune: true
