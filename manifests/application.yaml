@@ -19,6 +19,8 @@ spec:
       - manifests/service
       - manifests/hooks/pre-sync-waves
       - manifests/hooks/post-sync-waves
+      - manifests/hooks/ai-agent-scripts
+      - manifests/hooks/ai-advisor-cronjob
   syncPolicy:
     automated:
       prune: true
