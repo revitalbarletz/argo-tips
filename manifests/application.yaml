@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/revitalbarletz/argo-tips.git
     targetRevision: main
-    path: manifests   # 👈 this is the only valid field (one directory)
+    path: manifests   # 👈 only one path
   syncPolicy:
     automated:
       prune: true
