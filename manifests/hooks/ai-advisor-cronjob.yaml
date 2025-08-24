@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: ai-deployment-advisor
+  namespace: argo-tips
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+  schedule: "*/5 * * * *"   # every 5 minutes
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: ai-agent
+            image: python:3.11-slim
+            command: ["python", "-u", "/app/agent.py"]
+            volumeMounts:
+            - name: scripts
+              mountPath: /app
+          volumes:
+          - name: scripts
+            configMap:
+              name: ai-agent-scripts
