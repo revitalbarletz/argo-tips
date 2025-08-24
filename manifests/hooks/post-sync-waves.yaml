@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: argo-tips-postsync
+  name: post-sync-waves
   namespace: argo-tips
   annotations:
     argocd.argoproj.io/hook: PostSync
