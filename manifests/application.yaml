@@ -11,8 +11,7 @@ spec:
   source:
     repoURL: https://github.com/revitalbarletz/argo-tips.git
     targetRevision: main
-    path: manifests
-    manifestGeneratePaths:
+    path: manifests/
       - manifests/namespace
       - manifests/configmap
       - manifests/deployment
