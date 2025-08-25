@@ -3,10 +3,6 @@ kind: CronJob
 metadata:
   name: ai-deployment-advisor
   namespace: argo-tips
-  annotations:
-    argocd.argoproj.io/hook: PostSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
-    argocd.argoproj.io/sync-wave: "5"
 spec:
   schedule: "*/5 * * * *"   # every 5 minutes
   jobTemplate:
