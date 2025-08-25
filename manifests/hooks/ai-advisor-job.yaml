@@ -11,12 +11,14 @@ spec:
   template:
     spec:
       restartPolicy: Never
+      serviceAccountName: default  # or better: create a dedicated SA with RBAC
       containers:
       - name: ai-advisor
-        image: busybox
+        image: bitnami/kubectl:1.30
         command: ["sh", "-c"]
         args:
           - |
             echo "🤖 AI Advisor is checking deployment..."
-            echo "📊 Number of replicas: $(kubectl get deploy argo-tips -n argo-tips -o jsonpath='{.status.replicas}')"
+            REPLICAS=$(kubectl get deploy argo-tips -n argo-tips -o jsonpath='{.status.replicas}')
+            echo "📊 Number of replicas: $REPLICAS"
             echo "✅ Suggestion: scale replicas if needed!"
