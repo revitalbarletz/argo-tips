@@ -1,0 +1,11 @@
+# manifests/kustomization.yaml
+resources:
+  - namespace.yaml
+  - configmap.yaml
+  - service.yaml
+  - deployment.yaml
+
+# This is the knob AIU will turn:
+images:
+  - name: ghcr.io/revitalbarletz/argo-tips
+    newTag: "1.0.0"
