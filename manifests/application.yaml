@@ -3,15 +3,27 @@ kind: Application
 metadata:
   name: argo-tips
   namespace: argocd
+  annotations:
+    # Tell AIU what to track (alias "web")
+    argocd-image-updater.argoproj.io/image-list: web=ghcr.io/revitalbarletz/argo-tips
+
+    # Policy
+    argocd-image-updater.argoproj.io/web.update-strategy: semver
+    argocd-image-updater.argoproj.io/web.allow-tags: ">=1.0.0"
+    argocd-image-updater.argoproj.io/web.ignore-tags: "*rc*,*beta*,*pr-*"
+
+    # Write-back via Git (creates .argocd-source-argo-tips.yaml by default)
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/write-back-target: argocd
 spec:
   destination:
-    namespace: argo-tips
     server: https://kubernetes.default.svc
+    namespace: argo-tips
   project: default
   source:
     repoURL: https://github.com/revitalbarletz/argo-tips.git
     targetRevision: main
-    path: manifests   # 👈 only one path
+    path: manifests
   syncPolicy:
     automated:
       prune: true
