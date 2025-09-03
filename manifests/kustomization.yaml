@@ -7,5 +7,5 @@ resources:
 
 # This is the knob AIU will turn:
 images:
-  - name: ghcr.io/revitalbarletz/argo-tips
-    newTag: "1.0.0"
+  - name: revitalbar/argo-tips
+      newTag: "v1.5"   # <— set to the tag you're currently running
