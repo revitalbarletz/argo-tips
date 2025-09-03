@@ -4,15 +4,14 @@ metadata:
   name: argo-tips
   namespace: argocd
   annotations:
-    # Tell AIU what to track (alias "web")
-    argocd-image-updater.argoproj.io/image-list: web=ghcr.io/revitalbarletz/argo-tips
+    # Track the image you're actually using (Docker Hub)
+    argocd-image-updater.argoproj.io/image-list: web=revitalbar/argo-tips
 
-    # Policy
+    # Choose new versions by SemVer, but only from tags that look like "v1.2" or "v1.2.3"
     argocd-image-updater.argoproj.io/web.update-strategy: semver
-    argocd-image-updater.argoproj.io/web.allow-tags: ">=1.0.0"
-    argocd-image-updater.argoproj.io/web.ignore-tags: "*rc*,*beta*,*pr-*"
+    argocd-image-updater.argoproj.io/web.tag-match: '^v\\d+\\.\\d+(\\.\\d+)?$'
 
-    # Write-back via Git (creates .argocd-source-argo-tips.yaml by default)
+    # Write updates back to Git via the Argo CD "source hint" file
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/write-back-target: argocd
 spec:
