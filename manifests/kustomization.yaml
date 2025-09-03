@@ -1,11 +1,13 @@
 # manifests/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
 resources:
   - namespace.yaml
   - configmap.yaml
   - service.yaml
   - deployment.yaml
 
-# This is the knob AIU will turn:
 images:
   - name: revitalbar/argo-tips
-      newTag: "v1.5"   # <— set to the tag you're currently running 
+    newTag: v1.5
