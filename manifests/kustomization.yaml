@@ -8,4 +8,4 @@ resources:
 # This is the knob AIU will turn:
 images:
   - name: revitalbar/argo-tips
-      newTag: "v1.5"   # <— set to the tag you're currently running
+      newTag: "v1.5"   # <— set to the tag you're currently running 
