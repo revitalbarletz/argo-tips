@@ -9,7 +9,7 @@ metadata:
 
     # Choose new versions by SemVer, but only from tags that look like "v1.2" or "v1.2.3"
     argocd-image-updater.argoproj.io/web.update-strategy: semver
-    argocd-image-updater.argoproj.io/web.tag-match: '^v\\d+\\.\\d+(\\.\\d+)?$'
+    argocd-image-updater.argoproj.io/web.allow-tags: "regexp:^v\\d+\\.\\d+(\\.\\d+)?$"
 
     # Write updates back to Git via the Argo CD "source hint" file
     argocd-image-updater.argoproj.io/write-back-method: git
