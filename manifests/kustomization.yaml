@@ -1,13 +1,11 @@
 # manifests/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 resources:
   - namespace.yaml
   - configmap.yaml
   - service.yaml
   - deployment.yaml
-
 images:
   - name: revitalbar/argo-tips
-    newTag: v1.5
+    newTag: v1.9.3
