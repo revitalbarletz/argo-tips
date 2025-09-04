@@ -13,7 +13,7 @@ metadata:
 
     # Write updates back to Git via the Argo CD "source hint" file
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/write-back-target: argocd
+    argocd-image-updater.argoproj.io/write-back-target: kustomization
 spec:
   destination:
     server: https://kubernetes.default.svc
