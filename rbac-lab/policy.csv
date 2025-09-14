@@ -1,0 +1,14 @@
+# --- role composition & bindings ---
+# Make role:admin inherit role:readonly permissions
+g, role:admin, role:readonly
+
+# Bind the built-in admin user to role:admin (redundant, but good for demos)
+g, admin, role:admin
+
+# Example readonly policy (so the inheritance above is visible)
+p, role:readonly, applications, get, *, allow
+p, role:readonly, projects, get, *, allow
+
+# A couple of extra perms to see differences
+p, role:admin, repositories, get, *, allow
+p, role:admin, applications, sync, default/*, allow
